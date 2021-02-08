@@ -5,14 +5,14 @@
 <?php
 include_once 'conn.php';
 $rid=$_POST['id'];
-$sql="DELETE FROM formtble WHERE frmid='$rid'";
+$sql="DELETE FROM reg_form WHERE id='$rid'";
 if(mysqli_query($conn,$sql))
 {
-echo "record deleted Succesfully";
+echo "Record Deleted Succesfully";
 }
 else
 {
-echo "error deleting record:".mysqli_error($conn);
+echo "Error Deleting Record:".mysqli_error($conn);
 }
 mysqli_close($conn);
 ?>
