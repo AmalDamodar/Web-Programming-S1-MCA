@@ -8,23 +8,25 @@
 include_once'conn.php';
 if(isset($_POST['submit']))
 {
-$fname=$_POST['uname'];
+$uname=$_POST['uname'];
 $pass=$_POST['password'];
 $gen=$_POST['gender'];
-$em=$POST['email'];
+$em=$_POST['email'];
 $ph1=$_POST['code'];
-$ph2=$_POST[phno'];
-$sql="INSERT INTO formtble(Name,Password,Gender,Email,Phonenumber1,Phonenumber2)VALUES('$fname,'$pass','$gen','$em','$ph1','$ph2')";
-if(mysqli_query($conn,$sql)) {
-  echo "New Record Created Successfully !<br>";
+$ph2=$_POST['phno'];
+$sql="INSERT INTO reg_form(uname,pass,gender,email,code,phno)VALUES('$uname','$pass','$gen','$em','$ph1','$ph2')";
+if(mysqli_query($conn,$sql))
+{
+echo "record created Succesfully";
 }
 else
 {
-echo "error: ".$ mysqli_error($conn);
+    echo "Error:".$sql."".mysqli_error($conn);
 }
 mysqli_close($conn);
+}
 ?>
-<br><br><input type="submit" value=" Back to homepage " name="submit">
+<br><br><input type="submit" value="Back to Home Page" name="submit">
 </center>
 </body>
 </html>
