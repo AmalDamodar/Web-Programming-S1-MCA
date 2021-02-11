@@ -1,120 +1,72 @@
 <html>
-
-<head>
-
-<title> Update data</title>
-
-</head>
-
+ <head>
+ <title> Update data</title>
+ </head>
 <body bgcolor="cyan">
-
-<form method="post" action="formupdate3.php">
-
+  <form method="post" action="formupdate3.php">
 <center>
 
-<?php
 
+<?php
 include_once 'conn.php';
-
-Srid = $_POST['id'];
-
-$sql = "SELECT * FROM formtble where frmid='Srid""; Sresult=mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0)
-{
-
-?>
-
+$rid = $_POST['id'];
+$sql = "SELECT * FROM reg_form where id='$rid'";
+$result=mysqli_query($conn,$sql);
+	
+		if (mysqli_num_rows($result) > 0) 
+		{
+	?>
 <br><br>
+  	
+   
 
-<?php
+	<?php
+	
+	if($row = mysqli_fetch_assoc($result)) {
+	?>
+                  Form id:&nbsp&nbsp <input type="text" value="<?php echo $row["id"]; ?>" name="id"><br><br>
+	<b>UserName &nbsp&nbsp</b>
+    	<input type="text" value="<?php echo $row["uname"]; ?>" name="uname"><br><br>
 
-if($row = mysqli_fetch_assoc($result)) {
- ?>
+	<b>Password &nbsp&nbsp</b>
+	<input type="text" value="<?php echo $row["pass"]; ?>" name="pass"><br><br>
 
-Form id:&nbsp&nbsp <input type="text" value="<?php echo $row"from id"]: ?>" name="id"><br><br>
+	<b>Gender&nbsp&nbsp</b>
+	 <input type="radio" name="gender"value="male" <?php if($row["gender"]=="male"){ echo "checked";}?>/> Male
+     	<input type="radio" name="gender"value="female"<?php if($row["gender"]=="female"){ echo "checked";}?>/> Female<br><br>
 
-<b>UserName &nbsp&nbsp</b>
+	<b>Email &nbsp&nbsp</b>
+	<input type="text" value="<?php echo $row["email"]; ?>" name="email"><br><br>
 
-<input type="text" value="<?php echo Srow("Name"); ?>" name="upduname"><br><br>
+	<b>Phone number &nbsp&nbsp</b>
 
-<b>Password &nbsp&nbsp</b>
+	<select name="code">
+      	<option <?php if($row["code"]=="977"){echo "selected";}?> >977</option>
+     	 <option <?php if($row["code"]=="978"){echo "selected";}?> >978</option>
+      	<option <?php if($row["code"]=="979"){echo "selected";}?> >979</option>
+     	 <option <?php if($row["code"]=="973"){echo "selected";}?> >973</option>
+     	 <option <?php if($row["code"]=="972"){echo "selected";}?> >972</option>
+     	 <option <?php if($row["code"]=="974"){echo "selected";}?> >974</option>
+     	</select>
+	<input type="text" value="<?php echo $row["phno"]; ?>" name="phno"><br><br>
 
-<input type="text" value="<?php echo $row["Password"]; ?>"
+	<input type="Submit" value="Update"name="submit" >
 
-name="password2"><br><br>
 
-<b>Gender&nbsp&nbsp</b>
+	<?php
+	
+	}
+	?>
 
-<input type="radio" name="gender"value="male" <?php if($row["Gender")=="male"){ echo "checked":)?>/> Male
+	
 
-<input type="radio" name="gender"value="female"<?php
-
-if($row["Gender")=="female"){ echo "checked":}?>/> Female<br><br>
-
-<b>Email &nbsp&nbsp</b>
-
-<input type="text" value="<?php echo $row["Email"]; ?>"
-
-name="email"><br><br>
-
-<b>Phone number &nbsp&nbsp</b>
-
-<select name="code">
-
-<option <?php if($row["Phonenumber1")=="977"){echo "selected":)?>
-
->977</option>
-
-<option <?php if($row["Phonenumber1")=="978"){echo "selected";)?>
-
->978</option>
-
-<option <?php if($row["Phonenumber1")=="979"){echo "selected";}?>
-
->979</option>
-
-<option <?php if($row["Phonenumber1")=="973"){echo "selected";}?>
-
->973</option>
-
-<option <?php if($row["Phonenumber1")=="972"){echo "selected":}?>
-
->972</option>
-
-<option <?php if($row["Phonenumber1")=="974"){echo "selected":)?>
-
->974</option>
-
-</select>
-
-<input type="text" value="<?php echo $row["Phonenumber2"); ?>"
-
-name="phonenumber2"><br><br>
-
-<input type="submit" value="Update"name="submit">
-
-<?php
-}
-
-?>
-
-<?php
-
-}
-
-else{
-
-echo "No result found";
-
-}
-
-?>
-
+ 	<?php
+	}
+	else{
+   	 echo "No result found";
+	}
+	?>
 </center>
-
 </form>
-
-</body>
-
+ </body>
 </html>

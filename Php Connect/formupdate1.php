@@ -12,7 +12,7 @@
 
 <?php
 
-include_once 'conn.php'; $sql = "SELECT * FROM formtble"; $result=mysqli_query($conn,$sql);
+include_once 'conn.php'; $sql = "SELECT * FROM reg_form"; $result=mysqli_query($conn,$sql);
 
 if (mysqli_num_rows($result) > 0)
 
@@ -42,7 +42,7 @@ if (mysqli_num_rows($result) > 0)
 
 <?php
 
-Si=0;
+$i=0;
 
 while($row = mysqli_fetch_assoc($result)) {
 
@@ -50,17 +50,17 @@ while($row = mysqli_fetch_assoc($result)) {
 
 <tr>
 
-<td><?php echo $row["frmid"]; ?></td>
+<td><?php echo $row["id"]; ?></td>
 
-<td><?php echo Srow["Name"); ?></td> <td><?php echo $row["Password"); ?></td> <td><?php echo $row["Gender"); ?></td>
+<td><?php echo $row["uname"]; ?></td> <td><?php echo $row["pass"]; ?></td> <td><?php echo $row["gender"]; ?></td>
 
-<td><?php echo $row["Email"); ?></td> <td><?php echo Srow["Phonenumber1"); echo Srow"Phonenumber2"); ?></td>
+<td><?php echo $row["email"]; ?></td> <td><?php echo $row["code"]; echo $row["phno"]; ?></td>
 
 </tr>
 
 <?php
 
-Şi++;
+$i++;
 
 }
 
