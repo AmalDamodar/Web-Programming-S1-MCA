@@ -5,7 +5,7 @@
 <?php
 include_once 'conn.php';
 $rid=$_POST['id'];
-$sql="DELETE FROM reg_form WHERE id='$rid'";
+$sql="DELETE FROM abcd123 WHERE id='$rid'";
 if(mysqli_query($conn,$sql))
 {
 echo "Record Deleted Succesfully";
@@ -18,7 +18,7 @@ mysqli_close($conn);
 ?>
 <br>
 <br>
-<inputtype="submit" value="Back to Home Page" name="submit">
+<input type="submit" value="Back to Home Page" name="submit">
 </center>
 </body>
 </html>
